@@ -1,10 +1,15 @@
 
-function App () {
+import RoutesApp from './routes'
+
+import GlobalStyle from './styles/global'
+
+export function App() {
   return (
-    <div className="App">
-    Bem vindos
-    </div>
+   <>
+    {/*   <RoutesApp/>
+ */}
+      <GlobalStyle />
+  </>
+
   )
 }
-
-export default App
