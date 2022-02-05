@@ -43,14 +43,14 @@ export const ContainsSearch = styled.section`
     width: 100%;
     
     input { 
-      padding: 10px;
+      padding: 10px 25px;
       width: 100%;
       height: 100%;
       border: 0;
       border-radius: 5px 20px 5px 20px;
    
       color: #858585;
-      font-size: 1rem;
+      font-size: 1.2rem;
       letter-spacing: 1.5px;
       :focus {
         border-color: var( --text-body);
@@ -72,4 +72,14 @@ export const ContainsSearch = styled.section`
        }
     }
   }
+`
+export const ContainsMain = styled.section`
+  display: flex;
+  flex-wrap: wrap ;
+  gap: 25px;
+  width: 100%;
+  min-height: 400px;
+
+  padding: 3rem 4rem;
+ 
 `

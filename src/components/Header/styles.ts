@@ -40,7 +40,7 @@ export const Container = styled.header`
       background: var(--red);
       border-radius: 5px 20px;
      
-      height: 40px;
+      height: 45px;
       padding: 5px 14px;
       gap: 13px;
 

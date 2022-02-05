@@ -45,6 +45,10 @@ const GlobalStyle = createGlobalStyle`
     }
     button {
       cursor: pointer;
+      transition: filter 0.3s;
+        &:hover {
+            filter: brightness(0.91);
+        }
     }
     [disabled] {
       opacity: 0.6;

@@ -1,9 +1,12 @@
 import Header from '../../components/Header'
 
 import IconSearch from '../../assets/images/search_24px.svg'
+import imageMock from '../../assets/images/Image.png'
 
-import { Container, ContainsSearch } from './styles'
+import { Container, ContainsMain, ContainsSearch } from './styles'
+import CardHeroes from '../../components/CardHeroes'
 function Home() {
+  const mockSub = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   return (
         <Container>
           <Header />
@@ -18,6 +21,17 @@ function Home() {
             </div>
 
           </ContainsSearch>
+
+          <ContainsMain>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+            <CardHeroes img={imageMock} title='Homem Aranha' subTitle={mockSub}/>
+          </ContainsMain>
 
         </Container>
   )
