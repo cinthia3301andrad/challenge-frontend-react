@@ -7,6 +7,11 @@ export const Container = styled.section`
   flex-direction: column;
 `
 
+export const Paginaton = styled.section`
+  display: flex;
+  
+`
+
 export const ContainsSearch = styled.section`
   display: flex;
   flex-direction: column;
@@ -75,13 +80,22 @@ export const ContainsSearch = styled.section`
 `
 export const ContainsMain = styled.section`
   display: flex;
-  justify-content:center;
-  flex-wrap: wrap;
-  background: pink;
-  gap: 2rem;
-  width: 100%;
-  min-height: 400px;
+  flex-direction: column;
+  justify-content: center;
 
+  width: 100%;
   padding: 3rem 4rem;
+
+  > section {
+    display: flex;
+    
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 2rem;
+    width: 100%;
+    min-height: 400px;
+
+  }
  
 `

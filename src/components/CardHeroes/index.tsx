@@ -6,7 +6,10 @@ import { Container } from './styles'
 function CardHeroes({ id, name, description, thumbnail }: ResponseDataAPI) {
   return (
         <Container>
-            <img src={`${thumbnail.path}.${thumbnail.extension}`} alt="image heroe" />
+            {
+                thumbnail && <img src={`${thumbnail.path}.${thumbnail.extension}`} alt="image heroe" />
+            }
+
             <button>
                     <img src={iconTeam} alt="icon team" />
                 </button>
