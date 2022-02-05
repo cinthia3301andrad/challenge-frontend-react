@@ -7,11 +7,6 @@ export const Container = styled.section`
   flex-direction: column;
 `
 
-export const Paginaton = styled.section`
-  display: flex;
-  
-`
-
 export const ContainsSearch = styled.section`
   display: flex;
   flex-direction: column;
@@ -82,11 +77,12 @@ export const ContainsMain = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   width: 100%;
   padding: 3rem 4rem;
 
-  > section {
+  .content-characters {
     display: flex;
     
     justify-content: center;
@@ -94,6 +90,7 @@ export const ContainsMain = styled.section`
 
     gap: 2rem;
     width: 100%;
+    max-width: 1000px;
     min-height: 400px;
 
   }
