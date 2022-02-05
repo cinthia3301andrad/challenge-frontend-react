@@ -5,9 +5,8 @@ export const Container = styled.section`
   flex-direction: column;
   position: relative;
 
-background: red;
-  width: 210px;
-  height: 300px;
+  width: 223px;
+  height: 330px;
   background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px 30px;
@@ -25,7 +24,7 @@ background: red;
 
         position: absolute;
         top: 45%;
-        left: 155px;
+        left: 165px;
         width: 45px;
         height: 45px;
         border-radius: 100%;
@@ -63,6 +62,26 @@ background: red;
         color: #212121;
       }
       
-      
   }
+
+  @media(max-width: 415px) {
+    width: 100%;
+    height: 430px;
+    > img {  
+      height: 55%;
+    }
+
+    button {
+        top: 49%;
+        left: 70%;
+        width: 60px;
+        height: 60px;
+
+        img {
+            width: 25px;
+            
+          
+        }
+    }
+  }  
 `

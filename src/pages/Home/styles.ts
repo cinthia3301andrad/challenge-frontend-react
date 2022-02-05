@@ -75,8 +75,10 @@ export const ContainsSearch = styled.section`
 `
 export const ContainsMain = styled.section`
   display: flex;
-  flex-wrap: wrap ;
-  gap: 25px;
+  justify-content:center;
+  flex-wrap: wrap;
+  background: pink;
+  gap: 2rem;
   width: 100%;
   min-height: 400px;
 
