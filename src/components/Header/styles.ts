@@ -37,7 +37,7 @@ export const Container = styled.header`
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #F43735;
+      background: var(--red);
       border-radius: 5px 20px;
      
       height: 40px;
@@ -62,5 +62,27 @@ export const Container = styled.header`
         color: #FFFFFF;
       }
     }
+
+    
   }
+  @media(max-width: 430px) {
+    height: 135px;
+    .header__main {
+      flex-direction: column;
+      &-title{
+        gap: 1.8rem;
+
+        img { 
+            height: 37px;
+        }
+      }
+      &-button { 
+        width: 70%;
+        margin-top: 13px;
+      }
+
+    }
+      
+      
+    }
 `
