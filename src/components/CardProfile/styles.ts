@@ -3,12 +3,11 @@ import styled from 'styled-components'
 export const Container = styled.section`
   display: flex;
 
+position: relative;
   align-items: center;
 
-  position: absolute;
 
   padding: 1rem 4rem;
-  top: 51%;
 
   width: 80%;
   max-width: 1000px;
@@ -52,6 +51,7 @@ export const Container = styled.section`
   @media (max-width: 568px) {
     flex-direction: column;
     padding: 1.5em 1rem;
+    top: 55%;
     img {
       width: 100px;
       height: 100px;

@@ -57,14 +57,16 @@ function HeroProfile() {
         <div className="title">
           <h1>Descubra todos os quadrinhos que esse personagem participou</h1>
         </div>
-        <CardProfile
+
+      </ContainsPresentation>
+
+      <ContainsComics>
+      <CardProfile
           name={infosHero.name}
           description={infosHero.description}
           thumbnail={infosHero.thumbnail}
         />
-      </ContainsPresentation>
 
-      <ContainsComics>
         <h2>Comics</h2>
 
         {isLoading

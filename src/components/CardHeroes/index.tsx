@@ -4,17 +4,22 @@ import { toast } from 'react-toastify'
 
 import iconTeam from '../../assets/images/team-black.png'
 import iconTeamFavorite from '../../assets/images/icon-team.png'
-import { chekingHeroInTeam, handleAddHeroToTeam, handleRemoveHeroToTeam } from '../../shared/utils/heroTeam'
+import {
+  chekingHeroInTeam,
+  handleAddHeroToTeam,
+  handleRemoveHeroToTeam
+} from '../../shared/utils/heroTeam'
 import { ICharacters } from '../../types/@general'
 
 import { Container } from './styles'
+import { Popover } from 'antd'
 
 type CardHeroesProps = {
   attTeam?: (value: ICharacters[]) => void;
   infosHero: ICharacters;
   isFavorite: boolean;
-}
-function CardHeroes({ attTeam, infosHero, isFavorite } : CardHeroesProps) {
+};
+function CardHeroes({ attTeam, infosHero, isFavorite }: CardHeroesProps) {
   const { id, name, description, thumbnail } = infosHero
 
   const navigate = useNavigate()
@@ -37,20 +42,37 @@ function CardHeroes({ attTeam, infosHero, isFavorite } : CardHeroesProps) {
     }
   }
 
-  return (
-        <Container>
-            {
-                thumbnail && <img onClick={redirect} src={`${thumbnail.path}.${thumbnail.extension}`} alt="image heroe" />
-            }
+  const content = isFavorite
+    ? (
+    <p>Remover herói do time</p>
+      )
+    : (
+    <p>Adicionar herói ao time</p>
+      )
 
-            <button onClick={handleClickCardHero} className={isFavorite ? 'favorite' : ''}>
-                    <img src={isFavorite ? iconTeamFavorite : iconTeam} alt="icon team" />
-                </button>
-            <section onClick={redirect}>
-                <h1>{name}</h1>
-                <p>{description}</p>
-            </section>
-        </Container>
+  return (
+    <Container>
+      {thumbnail && (
+        <img
+          onClick={redirect}
+          src={`${thumbnail.path}.${thumbnail.extension}`}
+          alt="image heroe"
+        />
+      )}
+      <Popover content={content}>
+        <button
+          onClick={handleClickCardHero}
+          className={isFavorite ? 'favorite' : ''}
+        >
+          <img src={isFavorite ? iconTeamFavorite : iconTeam} alt="icon team" />
+        </button>
+      </Popover>
+
+      <section onClick={redirect}>
+        <h1>{name}</h1>
+        <p>{description}</p>
+      </section>
+    </Container>
   )
 }
 

@@ -13,7 +13,7 @@ export const ContainsComics = styled.section`
   align-items: center;
   flex-direction: column;
 
-  padding: 6rem 0;
+  margin-top: -200px;
   width: 100%;
   min-height: 1000px;
 
@@ -21,11 +21,16 @@ export const ContainsComics = styled.section`
     width: 80%;
     font-size: 1.6rem;
     max-width: 1000px;
+
+    margin-top: 2rem;
   }
 
   ul {
     width: 80%;
     max-width: 1000px;
+  }
+  @media (max-width: 568px) {
+    margin-top: -150px;
   }
 `
 
@@ -41,19 +46,6 @@ export const ContainsPresentation = styled.section`
 
   background-image: url(${imgBackground});
 
-  a {
- 
-    position: absolute;
-    top: 1rem;
-    right: 5rem;
-    color: #ffcdd2;
-    font-weight: 600;
-
-    img {
-      width: 17px;
-      margin-left: 5px;
-    }
-  }
   .title {
     width: 80%;
     max-width: 1000px;
@@ -66,7 +58,7 @@ export const ContainsPresentation = styled.section`
 
     color: #ffffff;
 
-    max-width: 400px;
+    max-width: 500px;
     margin-bottom: 8rem;
   }
 `
