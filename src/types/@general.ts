@@ -1,4 +1,4 @@
-export type ResponseDataAPICharacters = {
+export type ICharacters = {
     id: string;
     name: string;
     description: string;
@@ -8,7 +8,7 @@ export type ResponseDataAPICharacters = {
     }
 }
 
-export type ResponseDataAPIHeroProfile = {
+export type IHeroProfile = {
     id: number,
     name: string,
     description: string,
@@ -17,7 +17,7 @@ export type ResponseDataAPIHeroProfile = {
       path: string
     },
 }
-export type ResponseDataAPIComics = {
+export type IComics = {
     id: number,
     title: string,
     description: string,

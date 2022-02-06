@@ -17,20 +17,19 @@ export const Container = styled.header`
     width: 100%;
     margin: 0;
 
+    &-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
 
-    &-title{
-        display: flex;
-        align-items: center;
-        gap: 15px;
+      img {
+        height: 45px;
+      }
 
-        img { 
-            height: 45px;
-        }
-
-        h1 { 
-          color: #FFFFFF;
-          font-size: 1.3rem;
-        }
+      h1 {
+        color: #ffffff;
+        font-size: 1.3rem;
+      }
     }
 
     &-button {
@@ -39,7 +38,7 @@ export const Container = styled.header`
       justify-content: center;
       background: var(--red);
       border-radius: 5px 20px;
-     
+
       height: 45px;
       padding: 5px 14px;
       gap: 13px;
@@ -50,39 +49,33 @@ export const Container = styled.header`
         filter: brightness(0.9);
       }
 
-      img { 
+      img {
         height: 15px;
         margin: 0;
-        
       }
 
-      p { 
+      p {
         font-size: 1rem;
         margin: 0;
-        color: #FFFFFF;
+        color: #ffffff;
       }
     }
-
-    
   }
-  @media(max-width: 430px) {
+  @media (max-width: 430px) {
     height: 135px;
     .header__main {
       flex-direction: column;
-      &-title{
+      &-title {
         gap: 1.8rem;
 
-        img { 
-            height: 37px;
+        img {
+          height: 37px;
         }
       }
-      &-button { 
+      &-button {
         width: 70%;
         margin-top: 13px;
       }
-
     }
-      
-      
-    }
+  }
 `

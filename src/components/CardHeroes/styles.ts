@@ -22,6 +22,9 @@ export const Container = styled.section`
     width: 100%;
     height: 52%;
   }
+  .favorite {
+    background: var(--red);
+  }
   button {
     display: flex;
     align-items: center;

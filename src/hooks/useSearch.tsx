@@ -5,8 +5,8 @@ interface SearchProviderProps {
 }
 
 interface SearchContextData {
-    setTextSearch: (value: string) => void;
-    textSearch: string;
+  setTextSearch: (value: string) => void;
+  textSearch: string;
 }
 
 const SearchContext = createContext<SearchContextData>({} as SearchContextData)
@@ -14,9 +14,7 @@ const SearchContext = createContext<SearchContextData>({} as SearchContextData)
 export function SearchProvider({ children }: SearchProviderProps): JSX.Element {
   const [textSearch, setTextSearch] = useState('')
   return (
-    <SearchContext.Provider
-      value={{ textSearch, setTextSearch }}
-    >
+    <SearchContext.Provider value={{ textSearch, setTextSearch }}>
       {children}
     </SearchContext.Provider>
   )

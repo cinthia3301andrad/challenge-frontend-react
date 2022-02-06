@@ -1,9 +1,9 @@
-import { ResponseDataAPIComics } from '../../types/@responseAPI'
+import { IComics } from '../../types/@general'
 import { Container } from './styles'
 
-function CardComic(infos: ResponseDataAPIComics) {
+function CardComic(infos: IComics) {
   const { title, description, thumbnail, dates, pageCount, prices } = infos
-  console.log('ue', dates, pageCount, prices)
+
   return (
     <Container>
       {thumbnail && (
@@ -16,12 +16,12 @@ function CardComic(infos: ResponseDataAPIComics) {
         <h1>{title}</h1>
         <div className="details">
           <p>{new Date(dates[1].date).toDateString()}</p>
-            <span />
+          <span />
           <p>{pageCount} pages</p>
-             <span />
+          <span />
           <p>
             {
-              (prices[0].price).toLocaleString('en-US', {
+              prices[0].price.toLocaleString('en-US', {
                 style: 'currency',
                 currency: 'USD'
               }) /* $2,500.00 */

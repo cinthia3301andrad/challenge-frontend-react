@@ -5,13 +5,13 @@ import IconSearch from '../../assets/images/search_24px.svg'
 import { useSearch } from '../../hooks/useSearch'
 import { getCharactersDefault } from '../../services/utils/getCharactersDefault'
 
-import { ResponseDataAPICharacters } from '../../types/@responseAPI'
+import { ICharacters } from '../../types/@general'
 import { api } from '../../services/api'
 
 import { Container } from './styles'
 
 type SearchInputProps = {
-    onCharacters: (value: ResponseDataAPICharacters[]) => void;
+    onCharacters: (value: ICharacters[]) => void;
     onTotalCharacters: (value: number) => void;
     setOffset: (value: number) => void;
 }
@@ -27,7 +27,7 @@ function SearchInput({ onCharacters, onTotalCharacters, setOffset }: SearchInput
     onTotalCharacters(response.total)
   }
 
-  async function handleSearch(text: string) {
+  async function handleChangeSearch(text: string) {
     try {
       const { data } = await api.get('characters', {
         params: {
@@ -50,7 +50,7 @@ function SearchInput({ onCharacters, onTotalCharacters, setOffset }: SearchInput
     if (textSearch === '') {
       setIsInitialSearch(true)
     } else {
-      handleSearch(textSearch)
+      handleChangeSearch(textSearch)
     }
   }, [textSearch])
 
@@ -64,9 +64,9 @@ function SearchInput({ onCharacters, onTotalCharacters, setOffset }: SearchInput
                   setTextSearch(event.target.value)
                 }}
             />
-            <button>
-            <img src={IconSearch} alt="icon search" />
-            </button>
+            <span>
+             <img src={IconSearch} alt="icon search" />
+            </span>
       </Container>
   )
 }

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import 'react-toastify/dist/ReactToastify.css'
 
 const GlobalStyle = createGlobalStyle`
 
@@ -31,6 +32,9 @@ const GlobalStyle = createGlobalStyle`
       @media(max-width: 720px) {
         font-size: 87.5%; /* 14px */
       }  
+    }
+    a { 
+      text-decoration: none;
     }
     body {
         background: var(--background);

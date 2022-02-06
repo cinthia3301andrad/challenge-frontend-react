@@ -7,24 +7,23 @@ export const Container = styled.section`
   flex-direction: column;
 `
 
-export const ContainsComics = styled.section`
+export const ContainsTeam = styled.section`
   display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 
+  margin-top: -290px;
   padding: 6rem 0;
   width: 100%;
-  min-height: 1000px;
 
-  h2 {
-    width: 80%;
-    font-size: 1.6rem;
-    max-width: 1000px;
-  }
+  .section-team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 
-  ul {
     width: 80%;
+
     max-width: 1000px;
   }
 `
@@ -41,19 +40,6 @@ export const ContainsPresentation = styled.section`
 
   background-image: url(${imgBackground});
 
-  a {
- 
-    position: absolute;
-    top: 1rem;
-    right: 5rem;
-    color: #ffcdd2;
-    font-weight: 600;
-
-    img {
-      width: 17px;
-      margin-left: 5px;
-    }
-  }
   .title {
     width: 80%;
     max-width: 1000px;
@@ -66,7 +52,7 @@ export const ContainsPresentation = styled.section`
 
     color: #ffffff;
 
-    max-width: 400px;
+    max-width: 500px;
     margin-bottom: 8rem;
   }
 `
