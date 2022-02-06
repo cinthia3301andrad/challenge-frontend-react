@@ -1,11 +1,18 @@
+import { useNavigate } from 'react-router-dom'
+
 import iconTeam from '../../assets/images/team-black.png'
-import { ResponseDataAPI } from '../../types/@responseAPI'
+import { ResponseDataAPICharacters } from '../../types/@responseAPI'
 
 import { Container } from './styles'
 
-function CardHeroes({ id, name, description, thumbnail }: ResponseDataAPI) {
+function CardHeroes({ id, name, description, thumbnail }: ResponseDataAPICharacters) {
+  const navigate = useNavigate()
+
+  const redirect = () => {
+    navigate(`/profile/${id}`)
+  }
   return (
-        <Container>
+        <Container onClick={redirect}>
             {
                 thumbnail && <img src={`${thumbnail.path}.${thumbnail.extension}`} alt="image heroe" />
             }

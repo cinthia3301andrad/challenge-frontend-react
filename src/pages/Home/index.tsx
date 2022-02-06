@@ -3,16 +3,21 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import CardHeroes from '../../components/CardHeroes'
 
-import IconSearch from '../../assets/images/search_24px.svg'
-
-import { ResponseDataAPI } from '../../types/@responseAPI'
+import { ResponseDataAPICharacters } from '../../types/@responseAPI'
 import { api } from '../../services/api'
 
-import { Container, ContainsMain, ContainsSearch } from './styles'
 import Pagination from '../../components/Pagination'
+import SearchInput from '../../components/SearchInput'
+
+import { getCharactersDefault } from '../../services/utils/getCharactersDefault'
+import { useSearch } from '../../hooks/useSearch'
+
+import { Container, ContainsMain, ContainsSearch } from './styles'
 
 function Home() {
-  const [characters, setCharacters] = useState<ResponseDataAPI[]>([])
+  const { textSearch } = useSearch()
+
+  const [characters, setCharacters] = useState<ResponseDataAPICharacters[]>([])
   const [totalCharacters, setTotalCharacters] = useState(0)
   const [offset, setOffset] = useState(0)
 
@@ -21,74 +26,77 @@ function Home() {
   async function handlePagination(page: number) {
     try {
       const requestedOffset = (page - 1) * limit
+      const paramsName = textSearch.length > 0
+        ? {
+            nameStartsWith: textSearch,
+            limit: limit,
+            offset: requestedOffset
+          }
+        : {
+            limit: limit,
+            offset: requestedOffset
+          }
       const { data } = await api.get('characters', {
-        params: {
-          limit: limit,
-          offset: requestedOffset
-        }
+        params: paramsName
       })
       setCharacters([...data.data.results])
       setOffset(requestedOffset)
-    } catch (e) {}
+    } catch (err) {
+      return Promise.reject(err)
+    }
+  }
+
+  async function handleGetCharacter() {
+    const response = await getCharactersDefault({ limit })
+
+    setCharacters([...response.results])
+    setTotalCharacters(response.total)
   }
 
   useEffect(() => {
-    api
-      .get('characters', {
-        params: {
-          limit: limit
-        }
-      })
-      .then(({ data }) => {
-        const response = data.data.results
-        setTotalCharacters(data.data.total)
-        setCharacters(response)
-      })
-      .catch((err) => {
-        console.log('Error', err)
-      })
+    handleGetCharacter()
   }, [])
 
   return (
-    <Container>
-      <Header />
-      <ContainsSearch>
-        <div className="container-search">
-          <h1>Explore the most powerful characters in Marvel</h1>
-          <div className="search-input">
-            <input type="text" />
-            <button>
-              <img src={IconSearch} alt="icon search" />
-            </button>
+
+      <Container>
+        <Header />
+        <ContainsSearch>
+          <div className="container-search">
+            <h1>Explore the most powerful characters in Marvel</h1>
+            <SearchInput
+              onCharacters={setCharacters}
+              onTotalCharacters={setTotalCharacters}
+              setOffset={setOffset}
+            />
           </div>
-        </div>
-      </ContainsSearch>
+        </ContainsSearch>
 
-      <ContainsMain>
-        <section className="content-characters">
-          {characters?.map((character) => {
-            return (
-              <CardHeroes
-                key={character.id}
-                id={character.id}
-                name={character.name}
-                description={character.description}
-                thumbnail={character.thumbnail}
-              />
-            )
-          })}
-        </section>
+        <ContainsMain>
+          <section className="content-characters">
+            {characters?.map((character) => {
+              return (
+                <CardHeroes
+                  key={character.id}
+                  id={character.id}
+                  name={character.name}
+                  description={character.description}
+                  thumbnail={character.thumbnail}
+                />
+              )
+            })}
+          </section>
 
-        <Pagination
-          onPageChange={handlePagination}
-          onCharacters = {setCharacters}
-          setOffset={setOffset}
-          offset={offset}
-          total={totalCharacters}
+          <Pagination
+            onPageChange={handlePagination}
+            onCharacters={setCharacters}
+            setOffset={setOffset}
+            offset={offset}
+            total={totalCharacters}
+          />
+        </ContainsMain>
+      </Container>
 
-        />
-      </ContainsMain>
-    </Container>
   )
 }
 
