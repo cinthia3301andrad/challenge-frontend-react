@@ -7,6 +7,30 @@ export const Container = styled.section`
   flex-direction: column;
 `
 
+export const ContainsComics = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 6rem 0;
+  width: 100%;
+  min-height: 1000px;
+
+  h2 {
+      width: 80%;
+      font-size: 1.6rem;
+      max-width: 1000px;
+  }
+
+  ul {
+      width: 80%;
+      max-width:1000px;
+
+  }
+  
+`
+
 export const ContainsPresentation = styled.section`
   display: flex;
   justify-content: center;

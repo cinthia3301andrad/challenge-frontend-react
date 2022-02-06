@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import iconReturn from '../../assets/images/return.svg'
+import CardComic from '../../components/CardComic'
 import CardProfile from '../../components/CardProfile'
 
 import Header from '../../components/Header'
 import { api } from '../../services/api'
 import { ResponseDataAPIComics, ResponseDataAPIHeroProfile } from '../../types/@responseAPI'
-import { Container, ContainsPresentation } from './styles'
+import { Container, ContainsComics, ContainsPresentation } from './styles'
 
 function HeroProfile() {
   const [infosHero, setInfosHero] = useState<ResponseDataAPIHeroProfile>({} as ResponseDataAPIHeroProfile)
@@ -16,13 +17,11 @@ function HeroProfile() {
 
   useEffect(() => {
     api.get(`characters/${id}`).then(({ data }) => {
-      console.log('O Q TEMOS', data.data.results)
       setInfosHero(data.data.results[0])
     }).catch((err) => {
       console.log('ee', err)
     })
     api.get(`characters/${id}/comics`).then(({ data }) => {
-      console.log('O Q TEMOS AQUI', data.data)
       setComics([...data.data.results])
     }).catch((err) => {
       console.log('ee', err)
@@ -41,6 +40,15 @@ function HeroProfile() {
           <CardProfile name={infosHero.name} description={infosHero.description} thumbnail={infosHero.thumbnail}/>
 
       </ContainsPresentation>
+
+      <ContainsComics>
+          <h2>Comics</h2>
+        <ul>
+        {comics.map(comic => (<CardComic key={comic.id} {...comic}/>))}
+
+        </ul>
+
+      </ContainsComics>
     </Container>
   )
 }
