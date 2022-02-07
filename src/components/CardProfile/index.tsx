@@ -20,7 +20,7 @@ function CardProfile({ name, description, thumbnail }: CardProfileProps) {
       )}
       <div>
         <h1>{name}</h1>
-        <p>{description}</p>
+        <p>{description?.split(' ').slice(0, 200).join(' ')}</p>
       </div>
     </Container>
   )

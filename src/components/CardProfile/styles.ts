@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.section`
   display: flex;
 
-position: relative;
-  align-items: center;
+  position: relative;
 
+  align-items: center;
 
   padding: 1rem 4rem;
 

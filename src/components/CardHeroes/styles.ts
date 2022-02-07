@@ -58,6 +58,7 @@ export const Container = styled.section`
       font-weight: bold;
       font-size: 1.3rem;
       line-height: 37px;
+      max-width: 80%;
 
       color: #212121;
     }

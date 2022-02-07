@@ -10,9 +10,10 @@ export const Container = styled.section`
 export const ContainsTeam = styled.section`
   display: flex;
   justify-content: center;
-  align-items: start;
+  flex-direction: column;
+  align-items: center;
 
-  margin-top: -290px;
+  margin-top: -250px;
   padding: 6rem 0;
   width: 100%;
 
@@ -25,6 +26,15 @@ export const ContainsTeam = styled.section`
     width: 80%;
 
     max-width: 1000px;
+  }
+  .show {
+    margin-top: 2rem;
+    border: none;
+    background: var(--red);
+    color: #fff;
+ 
+    border-radius: 10px 20px 10px 20px;
+    padding: 0.5rem 1rem;
   }
 `
 

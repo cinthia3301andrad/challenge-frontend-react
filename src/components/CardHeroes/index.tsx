@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { Popover } from 'antd'
+
 import { useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify'
@@ -12,7 +15,6 @@ import {
 import { ICharacters } from '../../types/@general'
 
 import { Container } from './styles'
-import { Popover } from 'antd'
 
 type CardHeroesProps = {
   attTeam?: (value: ICharacters[]) => void;
@@ -22,18 +24,20 @@ type CardHeroesProps = {
 function CardHeroes({ attTeam, infosHero, isFavorite }: CardHeroesProps) {
   const { id, name, description, thumbnail } = infosHero
 
+  const [isAlreadyIncluded, setIsAlreadyIncluded] = useState(chekingHeroInTeam(infosHero.id))
+
   const navigate = useNavigate()
   const redirect = () => {
     navigate(`/profile/${id}`)
   }
   const handleClickCardHero = () => {
-    const include = chekingHeroInTeam(infosHero.id)
+    setIsAlreadyIncluded(true)
 
-    if (!isFavorite && include) {
+    if (!isFavorite && isAlreadyIncluded) {
       toast.error('Você já possui esse heroi no time!')
     }
 
-    if (!isFavorite && !include) {
+    if (!isFavorite && !isAlreadyIncluded) {
       handleAddHeroToTeam(infosHero)
       toast.success('Herói adicionado ao time!')
     } else if (attTeam) {
@@ -47,7 +51,7 @@ function CardHeroes({ attTeam, infosHero, isFavorite }: CardHeroesProps) {
     <p>Remover herói do time</p>
       )
     : (
-    <p>Adicionar herói ao time</p>
+    <p>{isAlreadyIncluded ? 'Héroi já está no seu time' : 'Adicionar herói ao time'}</p>
       )
 
   return (
