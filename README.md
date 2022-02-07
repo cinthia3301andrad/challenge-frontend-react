@@ -1,46 +1,50 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"> 
+<img src="https://github.com/cinthia3301andrad/challenge-frontend-react/blob/develop/src/assets/images/homem-ferro.png" align="center" width="10%"></img>
+</p>
+<h1 align="center">Marvel APP</h1>
 
-## Available Scripts
+<p align="center">🚀 Projeto desenvolvido para desafio de Front-end MaaS</p>
 
-In the project directory, you can run:
+<p align="left">Esse projeto tem como objetivo criar uma aplicação client-side escalável, utilizando a biblioteca React, que faça consultas e consuma uma API externa da Marvel.</p>
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 🛠 Tecnologias utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-### `yarn test`
+- [ReactJS](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Styled-Component](https://styled-components.com/)
+- [Context-API](https://pt-br.reactjs.org/docs/context.html)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## 🚀 Como executar o projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Clone este repositório
+$ git clone https://github.com/cinthia3301andrad/challenge-frontend-react.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd challenge-frontend-react
 
-### `yarn eject`
+# Instale as dependências
+$ yarn install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Execute a aplicação 
+$ yarn start
+# A aplicação iniciará na porta 3000- acesse http://localhost:3000
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/47640072?s=400&u=63429990df49a363de4f3a25d522453dfe08eab3&v=4" width="100px;" />
+ <br />
+ <sub><b>Cinthia Andrade</b></sub></a> <a href="https://github.com/cinthia3301andrad" title="github">🚀</a>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Feito com ❤️ por Cinthia Andrade 👋🏽 Entre em contato!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ [Linkedin](https://www.linkedin.com/in/cinthia-andrade-866a501aa/) 
+[Gmail](mailto:cinthiaadm15@gmail.com)
