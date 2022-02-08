@@ -10,10 +10,10 @@ function Header() {
       <section className="header__main">
         <div className="header__main-title">
           <img src={logoMen} alt="icon Iron men" />
-          <h1>Marvel Strike Team</h1>
+          <h1>Equipe de ataque - Marvel</h1>
         </div>
          <Link to={'/team'} className="header__main-button">
-          <p> Your team</p>
+          <p>Seu time</p>
           <img src={iconTeam} alt="icon team" />
         </Link>
       </section>

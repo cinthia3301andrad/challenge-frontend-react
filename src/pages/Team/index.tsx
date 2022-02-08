@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import Header from '../../components/Header'
-import CardHeroes from '../../components/CardHeroes'
-import ReturnHome from '../../components/ReturnHome'
+import { CardHeroes, Footer, Header, ReturnHome } from '../../components'
 
 import { ICharacters } from '../../types/@general'
 
@@ -18,7 +16,6 @@ function Team() {
     const currentTeamAtt = [...team, ...currentTeam.slice(team.length, team.length + 8)]
     setTeam(currentTeamAtt)
     if (currentTeamAtt.length === currentTeam.length) {
-      console.log('entrou')
       setIsCompletShow(true)
       return
     }
@@ -63,6 +60,7 @@ function Team() {
         </div>
         <button onClick={handleShowMore} className="show" disabled={isCompletShow}>Mostrar mais</button>
       </ContainsTeam>
+      <Footer />
     </Container>
   )
 }

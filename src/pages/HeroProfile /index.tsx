@@ -3,23 +3,20 @@ import { useParams } from 'react-router-dom'
 
 import { TwinSpin } from 'react-cssfx-loading'
 
-import CardComic from '../../components/CardComic'
-import CardProfile from '../../components/CardProfile'
-
-import Header from '../../components/Header'
+import { IComics, IHeroProfile } from '../../types/@general'
 import { api } from '../../services/api'
-import {
-  IComics,
-  IHeroProfile
-} from '../../types/@general'
 
+import {
+  CardComic,
+  CardProfile,
+  Footer,
+  Header,
+  ReturnHome
+} from '../../components'
 import { Container, ContainsComics, ContainsPresentation } from './styles'
-import ReturnHome from '../../components/ReturnHome'
 
 function HeroProfile() {
-  const [infosHero, setInfosHero] = useState<IHeroProfile>(
-    {} as IHeroProfile
-  )
+  const [infosHero, setInfosHero] = useState<IHeroProfile>({} as IHeroProfile)
   const [comics, setComics] = useState<IComics[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const { id } = useParams()
@@ -52,16 +49,15 @@ function HeroProfile() {
       <Header />
 
       <ContainsPresentation>
-        <ReturnHome/>
+        <ReturnHome />
 
         <div className="title">
           <h1>Descubra todos os quadrinhos que esse personagem participou</h1>
         </div>
-
       </ContainsPresentation>
 
       <ContainsComics>
-      <CardProfile
+        <CardProfile
           name={infosHero.name}
           description={infosHero.description}
           thumbnail={infosHero.thumbnail}
@@ -85,6 +81,7 @@ function HeroProfile() {
           <h3>No comics found 🙁</h3>
               )}
       </ContainsComics>
+      <Footer />
     </Container>
   )
 }

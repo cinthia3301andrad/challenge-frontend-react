@@ -1,0 +1,8 @@
+export { default as CardComic } from './CardComic'
+export { default as CardHeroes } from './CardHeroes'
+export { default as CardProfile } from './CardProfile'
+export { default as Footer } from './Footer'
+export { default as Header } from './Header'
+export { default as Pagination } from './Pagination'
+export { default as ReturnHome } from './ReturnHome'
+export { default as SearchInput } from './SearchInput'

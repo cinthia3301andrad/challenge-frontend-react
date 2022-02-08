@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react'
 
-import Header from '../../components/Header'
-import CardHeroes from '../../components/CardHeroes'
-
 import { ICharacters } from '../../types/@general'
-
-import Pagination from '../../components/Pagination'
-import SearchInput from '../../components/SearchInput'
 
 import { getCharactersDefault } from '../../services/utils/getCharactersDefault'
 import { useSearch } from '../../hooks/useSearch'
 
 import { Container, ContainsMain, ContainsSearch } from './styles'
 import { TwinSpin } from 'react-cssfx-loading/lib'
+import { CardHeroes, Footer, Header, Pagination, SearchInput } from '../../components'
 
 function Home() {
   const { setTextSearch } = useSearch()
@@ -89,6 +84,7 @@ function Home() {
           total={totalCharacters}
         />
       </ContainsMain>
+      <Footer />
     </Container>
   )
 }
