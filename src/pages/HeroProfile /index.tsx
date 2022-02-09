@@ -11,7 +11,8 @@ import {
   CardProfile,
   Footer,
   Header,
-  ReturnHome
+  ReturnHome,
+  TitleMain
 } from '../../components'
 import { Container, ContainsComics, ContainsPresentation } from './styles'
 
@@ -51,9 +52,7 @@ function HeroProfile() {
       <ContainsPresentation>
         <ReturnHome />
 
-        <div className="title">
-          <h1>Descubra todos os quadrinhos que esse personagem participou</h1>
-        </div>
+       <TitleMain title='Descubra todos os quadrinhos que esse personagem participou'/>
       </ContainsPresentation>
 
       <ContainsComics>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { CardHeroes, Footer, Header, ReturnHome } from '../../components'
+import { CardHeroes, Footer, Header, ReturnHome, TitleMain } from '../../components'
 
 import { ICharacters } from '../../types/@general'
 
@@ -42,9 +42,7 @@ function Team() {
 
       <ContainsPresentation>
         <ReturnHome />
-        <div className="title">
-          <h1>Aqui está sua lista de heróis adicionados a equipe</h1>
-        </div>
+        <TitleMain title='Aqui está sua lista de heróis adicionados a equipe'/>
       </ContainsPresentation>
 
       <ContainsTeam>
