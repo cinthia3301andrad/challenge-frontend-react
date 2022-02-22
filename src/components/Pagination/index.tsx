@@ -20,7 +20,7 @@ function Pagination({ onCharacters, setOffset, offset, total }: PaginationProps)
   const limit = 8
   const current = offset ? offset / limit + 1 : 1
 
-  const pages = Math.ceil(total / limit)
+  const pages = Math.ceil(total / limit)/* total de paginas: 120/12: 10; arredonda para cima */
   const first = Math.max(current - MAX_LEFT, 1)
 
   async function handlePagination(page: number) {

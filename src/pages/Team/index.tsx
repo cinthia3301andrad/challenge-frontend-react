@@ -17,9 +17,7 @@ function Team() {
     setTeam(currentTeamAtt)
     if (currentTeamAtt.length === currentTeam.length) {
       setIsCompletShow(true)
-      return
     }
-    console.log('OPA', currentTeamAtt, currentTeam)
   }
 
   useEffect(() => {
