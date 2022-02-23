@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import IconSearch from '../../assets/images/search_24px.svg'
 
@@ -9,15 +9,21 @@ import { ICharacters } from '../../types/@general'
 import { api } from '../../services/api'
 
 import { Container } from './styles'
+import { inputStringFormat } from '../../shared/utils/format'
 
 type SearchInputProps = {
-    onCharacters: (value: ICharacters[]) => void;
-    onTotalCharacters: (value: number) => void;
-    setOffset: (value: number) => void;
-}
+  onCharacters: (value: ICharacters[]) => void;
+  onTotalCharacters: (value: number) => void;
+  setOffset: (value: number) => void;
+};
 
-function SearchInput({ onCharacters, onTotalCharacters, setOffset }: SearchInputProps) {
+function SearchInput({
+  onCharacters,
+  onTotalCharacters,
+  setOffset
+}: SearchInputProps) {
   const { textSearch, setTextSearch } = useSearch()
+  const timeoutId = useRef() as React.MutableRefObject<any>
 
   const [isInitialSearch, setIsInitialSearch] = useState(true)
 
@@ -29,20 +35,23 @@ function SearchInput({ onCharacters, onTotalCharacters, setOffset }: SearchInput
 
   async function handleChangeSearch(text: string) {
     try {
-      const { data } = await api.get('characters', {
-        params: {
-          nameStartsWith: text,
-          limit: 8
-        }
-      })
-      onCharacters([...data.data.results])
-      onTotalCharacters(data.data.total)
+      setTimeout(async () => {
+        const { data } = await api.get('characters', {
+          params: {
+            nameStartsWith: text,
+            limit: 8
+          }
+        })
+        onCharacters([...data.data.results])
+        onTotalCharacters(data.data.total)
+      }, 500)
     } catch (err) {
       return Promise.reject(err)
     }
   }
 
   useEffect(() => {
+    if (!textSearch.trim()) return
     if (isInitialSearch) {
       setOffset(0)
       setIsInitialSearch(false)
@@ -50,24 +59,28 @@ function SearchInput({ onCharacters, onTotalCharacters, setOffset }: SearchInput
     if (textSearch === '') {
       setIsInitialSearch(true)
     } else {
-      handleChangeSearch(textSearch)
+      clearTimeout(timeoutId.current)
+
+      timeoutId.current = setTimeout(() => {
+        handleChangeSearch(textSearch)
+      }, 800)
     }
   }, [textSearch])
 
   return (
-        <Container>
-            <input
-                type="text"
-                value={textSearch}
-                onChange={(event) => {
-                  if (event.target.value === '') handleGetCharacter()
-                  setTextSearch(event.target.value)
-                }}
-            />
-            <span>
-             <img src={IconSearch} alt="icon search" />
-            </span>
-      </Container>
+    <Container>
+      <input
+        type="text"
+        value={textSearch}
+        onChange={(event) => {
+          if (event.target.value === '') handleGetCharacter()
+          setTextSearch(inputStringFormat(event.target.value))
+        }}
+      />
+      <span>
+        <img src={IconSearch} alt="icon search" />
+      </span>
+    </Container>
   )
 }
 export default SearchInput
